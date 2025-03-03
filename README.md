@@ -1,17 +1,17 @@
 # 👤 Invenstory API
 
-🚀 **Invenstory API** é uma API REST que gera personas fictícias aleatórias. Ela retorna informações como nome, idade, nacionalidade, profissão e um avatar, útil para testes, prototipação e geração de personagens fictícios.
+🚀 **Invenstory API** is a REST API that generates random fictional personas. It returns information such as name, age, nationality, profession, and an avatar, useful for testing, prototyping, and creating fictional characters.
 
-## 📌 Recursos
+## 📌 Features
 
-✅ Geração automática de personas fictícias  
-✅ Filtros opcionais por gênero (`male` ou `female`)  
-✅ JSON estruturado para fácil integração  
-✅ Documentação com Swagger  
+✅ Automatically generates fictional personas\
+✅ Optional filters for gender (`male` or `female`)\
+✅ Structured JSON for easy integration\
+✅ Swagger documentation
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
 - [Node.js](https://nodejs.org/)
 - [Express](https://expressjs.com/)
@@ -20,41 +20,47 @@
 
 ---
 
-## 📥 Como Instalar e Rodar Localmente
+## 📥 How to Install and Run Locally
 
-1️⃣ **Clone este repositório:**
+1️⃣ **Clone this repository:**
+
 ```sh
 git clone https://github.com/dxferraz/invenstory-api.git
 cd invenstory-api
 ```
 
-2️⃣ **Instale as dependências:**
+2️⃣ **Install dependencies:**
+
 ```sh
 npm install
 ```
 
-3️⃣ **Crie um arquivo `.env` na raiz do projeto e adicione:**
+3️⃣ **Create a **``** file in the project's root and add:**
+
 ```env
 PORT=5000
 ```
 
-4️⃣ **Execute a API:**
+4️⃣ **Run the API:**
+
 ```sh
 node src/server.js
 ```
 
-A API estará rodando e sua documentação pode ser acessada em **http://localhost:5000/api-docs/**.
+The API will be running, and its documentation can be accessed at [**http://localhost:5000/api-docs/**](http://localhost:5000/api-docs/).
 
 ---
 
-## 🔥 Como Usar a API
+## 🔥 How to Use the API
 
-### 🔹 **Gerar uma Persona Aleatória**
+### 🔹 **Generate a Random Persona**
+
 ```http
 GET /api/persona
 ```
 
-🔹 **Exemplo de Resposta JSON**
+🔹 **Example JSON Response**
+
 ```json
 {
   "name": "Daniel Ximenes Ferraz",
@@ -67,12 +73,14 @@ GET /api/persona
 }
 ```
 
-### 🔹 **Gerar uma Persona Específica por Gênero**
+### 🔹 **Generate a Persona by Gender**
+
 ```http
 GET /api/persona?gender=female
 ```
 
-🔹 **Exemplo de Resposta JSON**
+🔹 **Example JSON Response**
+
 ```json
 {
   "name": "Mariana Souza",
@@ -87,46 +95,31 @@ GET /api/persona?gender=female
 
 ---
 
-## 📜 Documentação com Swagger
+## 📜 Swagger Documentation
 
-A API possui uma **documentação interativa** com Swagger.  
-Após rodar a API, acesse:
+The API has an **interactive documentation** with Swagger.\
+After running the API, access:
 
 ```
 http://localhost:5000/api-docs
 ```
-<!-- 
-Se a API estiver hospedada, acesse:
-
-```
-https://invenstory.onrender.com/api-docs
-``` -->
 
 ---
 
-<!-- ## 🚀 Deploy e URL Pública
+## 🛠️ Future Improvements
 
-A API está hospedada em **Render** e pode ser acessada em:
-
-```
-https://invenstory.onrender.com/api/persona
-```
-
---- -->
-
-## 🛠️ Melhorias Futuras
-
-✅ Adicionar mais filtros (idade mínima/máxima, nacionalidade)
-✅ Adicionar suporte a LGBTQIA+ para gerar personas de diferentes generos
-✅ Melhorar as biografias geradas  
-✅ Criar uma interface web para visualizar as personas 
+✅ Add more filters (minimum/maximum age, nationality)\
+✅ Add LGBTQIA+ support to generate personas of different genders\
+✅ Improve generated biographies\
+✅ Create a web interface to visualize personas
 
 ---
 
-## 📝 Licença
+## 📝 License
 
-Este projeto é de código aberto sob a licença **Apache License**.
+This project is open-source under the **Apache License**.
 
 ---
 
-💡 **Desenvolvido por [Daniel Ferraz](https://github.com/dxferraz)**. Contribuições são bem-vindas! 😃
+💡 **Developed by **[**Daniel Ferraz**](https://github.com/dxferraz). Contributions are welcome! 😃
+
