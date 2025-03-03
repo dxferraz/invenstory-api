@@ -69,7 +69,7 @@ GET /api/persona
   "nationality": "Brazilian",
   "profession": "Software Developer",
   "bio": "Software developer with 3 years of experience...",
-  "avatar": "https://randomuser.me/api/portraits/men/45.jpg"
+  "photo": "https://randomuser.me/api/portraits/men/45.jpg"
 }
 ```
 
@@ -89,7 +89,7 @@ GET /api/persona?gender=female
   "nationality": "Portuguese",
   "profession": "Graphic Designer",
   "bio": "Graphic designer who loves drawing on screens...",
-  "avatar": "https://randomuser.me/api/portraits/women/20.jpg"
+  "photo": "https://randomuser.me/api/portraits/women/20.jpg"
 }
 ```
 
@@ -110,7 +110,6 @@ http://localhost:5000/api-docs
 
 ✅ Add more filters (minimum/maximum age, nationality)\
 ✅ Add LGBTQIA+ support to generate personas of different genders\
-✅ Improve generated biographies\
 ✅ Create a web interface to visualize personas
 
 ---

@@ -8,6 +8,7 @@ const { generatePersona } = require("../controllers/invenstoryController");
  *   get:
  *     summary: Generates a fictional persona with random attributes, photo, documents and etc.
  *     description: Returns a fictional persona with name, age, gender, nationality, profession, photo, biography, documents, address and bank accounts.
+ *     tags: [Persona]
  *     parameters:
  *       - in: query
  *         name: gender
