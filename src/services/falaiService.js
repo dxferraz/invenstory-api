@@ -16,8 +16,8 @@ async function generatePersonaPhoto(persona) {
       input: {
         prompt: prompt,
         image_size: {
-          width: 768,
-          height: 768,
+          width: 512,
+          height: 512,
         },
       },
       logs: true,
