@@ -1,6 +1,8 @@
 const faker = require("@faker-js/faker");
+const { generateBio } = require("../services/openaiService");
+const { generatePersonaPhoto } = require("../services/falaiService");
 
-exports.generatePersona = (req, res) => {
+exports.generatePersona = async (req, res) => {
   const gender = req.query.gender || (Math.random() > 0.5 ? "male" : "female");
 
   const persona = {
@@ -8,10 +10,12 @@ exports.generatePersona = (req, res) => {
     age: faker.faker.number.int({ min: 18, max: 80 }),
     gender: gender,
     nationality: faker.faker.location.country(),
-    profession: faker.faker.person.jobTitle(),
-    bio: faker.faker.lorem.sentence(),
-    avatar: `https://randomuser.me/api/portraits/${gender === "male" ? "men" : "women"}/${faker.faker.number.int({ min: 1, max: 99 })}.jpg`
+    profession: faker.faker.person.jobTitle()
   };
+
+  persona.bio = await generateBio(persona);
+
+  persona.photo = await generatePersonaPhoto(persona);
 
   res.json(persona);
 };
