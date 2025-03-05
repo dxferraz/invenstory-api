@@ -14,6 +14,10 @@ const options = {
         url: "http://localhost:5000",
         description: "Local server",
       },
+      {
+        url: "https://api.invenstory.dev",
+        description: "Production server",
+      },
     ],
   },
   apis: ["./src/routes/*.js"],

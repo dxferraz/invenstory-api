@@ -7,7 +7,7 @@ const setupSwagger = require("./swagger");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: ["https://api.invenstory.dev"] }));
+app.use(cors({ origin: "*", methods: [ "GET", "POST", "PUT", "DELETE" ], allowedHeaders: [ "Content-Type", "Authorization" ] }));
 app.use(express.json());
 
 app.use("/", personaRoutes);
