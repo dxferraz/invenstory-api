@@ -1,19 +1,27 @@
 const express = require("express");
 const router = express.Router();
-const { generatePersona } = require("../controllers/invenstoryController");
+const { generatePersona } = require("../controllers/personaController");
 
 /**
  * @swagger
- * /api/persona:
+ * /persona:
  *   get:
  *     summary: Generates a fictional persona with random attributes, photo, documents and etc.
- *     description: Returns a fictional persona with name, age, gender, nationality, profession, photo, biography, documents, address and bank accounts.
+ *     description: Returns a fictional persona with name, age, gender, origin, address, profession, biography and photo.
  *     tags: [Persona]
  *     parameters:
  *       - in: query
+ *         name: age
+ *         description: Age of the persona. Randomly generated if not provided.
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           nullable: true
+ *           minimum: 18
+ *           maximum: 90
+ *       - in: query
  *         name: gender
  *         description: Gender of the persona. Randomly generated if not provided.
- *         example: "male"
  *         required: false
  *         schema:
  *           type: string
@@ -46,7 +54,6 @@ const { generatePersona } = require("../controllers/invenstoryController");
  *       - in: query
  *         name: origin
  *         description: Origin of the persona. Randomly generated if not provided.
- *         example: "Brazil"
  *         required: false
  *         schema:
  *           type: string
@@ -246,6 +253,14 @@ const { generatePersona } = require("../controllers/invenstoryController");
  *             - Yemen
  *             - Zambia
  *             - Zimbabwe
+ *           required: false
+ *       - in: query
+ *         name: profession
+ *         description: Profession of the persona. Randomly generated if not provided.
+ *         required: false
+ *         schema:
+ *           type: string
+ *           nullable: true 
  *     responses:
  *       200:
  *         description: Success! Returns a fictional persona.
@@ -263,7 +278,7 @@ const { generatePersona } = require("../controllers/invenstoryController");
  *                 gender:
  *                   type: string
  *                   example: "male"
- *                 nationality:
+ *                 origin:
  *                   type: string
  *                   example: "Brazilian"
  *                 profession:

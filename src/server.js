@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const personaRoutes = require("./routes/invenstoryRoutes");
+const personaRoutes = require("./routes/personaRoute");
 const setupSwagger = require("./swagger");
 
 const app = express();

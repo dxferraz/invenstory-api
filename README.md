@@ -1,6 +1,6 @@
 # 👤 Invenstory API
 
-🚀 **Invenstory API** is a REST API that generates random fictional personas. It returns information such as name, age, nationality, profession, and an avatar, useful for testing, prototyping, and creating fictional characters.
+🚀 **Invenstory API** is a REST API that generates random fictional personas. It returns information such as name, age, origin, profession, and an avatar, useful for testing, prototyping, and creating fictional characters.
 
 ## 📌 Features
 
@@ -56,7 +56,7 @@ The API will be running, and its documentation can be accessed at [**http://loca
 ### 🔹 **Generate a Random Persona**
 
 ```http
-GET /api/persona
+GET /persona
 ```
 
 🔹 **Example JSON Response**
@@ -66,7 +66,7 @@ GET /api/persona
   "name": "Daniel Ximenes Ferraz",
   "age": 23,
   "gender": "male",
-  "nationality": "Brazilian",
+  "origin": "Brazilian",
   "profession": "Software Developer",
   "bio": "Software developer with 3 years of experience...",
   "photo": "https://randomuser.me/api/portraits/men/45.jpg"
@@ -76,17 +76,27 @@ GET /api/persona
 ### 🔹 **Generate a Persona by Gender**
 
 ```http
-GET /api/persona?gender=female
+GET /persona?gender=female
 ```
 
 🔹 **Example JSON Response**
 
 ```json
 {
+  "name": "Isadora Luzia Carvalho",
+  "age": "25",
+  "gender": "Transfeminine",
+  "origin": "Brazil",
+  "address": "Maria Silva  \nRua das Flores, 123  \nBairro Jardim das Acácias  \nCidade São Paulo  \nEstado São Paulo  \nCEP 01234-567  \nBrasil",
+  "profession": "Mechanic",
+  "bio": "Isadora Luzia Carvalho, uma mecânica de 25 anos, vive na Rua das Flores, no encantador Bairro Jardim das Acácias, em São Paulo. Desde pequena, Isadora sempre teve uma paixão inabalável por motores e engrenagens, transformando sua curiosidade em uma carreira habilidosa que desafia estereótipos de gênero. Transfeminina e orgulhosa, ela é conhecida na vizinhança por sua técnica impecável e pelo sorriso acolhedor que ilumina a oficina onde trabalha. Às vezes, entre consertos, ela sonha em abrir sua própria escola de mecânica para inspirar mais jovens a seguirem seus sonhos, provando que a força vem de dentro, não importa a forma que ela assuma.",
+  "photo": "https://v3.fal.media/files/tiger/yAHn7HomkKyPtvtpOzoin.png"
+}
+{
   "name": "Mariana Souza",
   "age": 29,
   "gender": "female",
-  "nationality": "Portuguese",
+  "origin": "Portuguese",
   "profession": "Graphic Designer",
   "bio": "Graphic designer who loves drawing on screens...",
   "photo": "https://randomuser.me/api/portraits/women/20.jpg"
@@ -108,8 +118,6 @@ http://localhost:5000/api-docs
 
 ## 🛠️ Future Improvements
 
-✅ Add more filters (minimum/maximum age, nationality)\
-✅ Add LGBTQIA+ support to generate personas of different genders\
 ✅ Create a web interface to visualize personas
 
 ---
@@ -121,4 +129,3 @@ This project is open-source under the **Apache License**.
 ---
 
 💡 **Developed by **[**Daniel Ferraz**](https://github.com/dxferraz). Contributions are welcome! 😃
-
