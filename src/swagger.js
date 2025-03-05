@@ -11,12 +11,12 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
-        description: "Local server",
-      },
-      {
         url: "https://api.invenstory.dev",
         description: "Production server",
+      },
+      {
+        url: "http://localhost:5000",
+        description: "Local server",
       },
     ],
   },
