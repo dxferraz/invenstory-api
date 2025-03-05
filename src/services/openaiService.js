@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 /**
  * Generates a name for a fictional persona using ChatGPT based on persona's origin.
- * @param {Object} persona - The fictional persona object containing age, profession, and nationality.
+ * @param {Object} persona - The fictional persona object containing age, profession, and origin.
  * @returns {Promise<string>} - A promise that resolves to the generated name.
  */
 async function generatePersonaName(persona) {
@@ -24,34 +24,90 @@ async function generatePersonaName(persona) {
 
     return response.choices[0].message.content.trim();
   } catch (error) {
-    console.error("Erro ao gerar nome:", error);
-    return "Nome indisponível no momento.";
+    console.error("Error generating name:", error);
+    return "Name unavailable.";
   }
 }
 
 /**
- * Generates a biography for a fictional persona using ChatGPT.
- * @param {Object} persona - The fictional persona object containing name, age, profession, and nationality.
- * @returns {Promise<string>} - A promise that resolves to the generated biography.
+ * Generates a address for a fictional persona using ChatGPT based on persona's origin.
+ * @param {Object} persona - The fictional persona object containing age, profession, and origin.
+ * @returns {Promise<string>} - A promise that resolves to the generated name.
  */
-async function generatePersonaBio(persona) {
-  const prompt = `Crie uma pequena biografia de um parágrafo no idioma que se fala em ${persona.nationality} para uma pessoa fictícia chamada ${persona.name}, de ${persona.age} anos, 
-  que trabalha como ${persona.profession} e é ${persona.nationality}.`;
+async function generatePersonaAddress(persona) {
+  const prompt = `Create a full regional address for a fictitious person who lives in ${persona.origin}. Return only the full address without any extra text.`;
 
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "Você é um escritor criativo." },
+        { role: "system", content: "You are a realistic address generator." },
+        { role: "user", content: prompt },
+      ],
+    });
+
+    return response.choices[0].message.content.trim();
+  } catch (error) {
+    console.error("Error generating address:", error);
+    return "Address unavailable.";
+  }
+}
+
+/**
+ * Generates a profession for a fictional persona using ChatGPT based on persona's age and origin.
+ * @param {Object} persona - The fictional persona object containing age, and origin.
+ * @returns {Promise<string>} - A promise that resolves to the generated name.
+ */
+async function generatePersonaProfession(persona) {
+  const prompt = `Create a coherent profession for a fictitious ${persona.age}-year-old person who lives in ${persona.origin}. Return only the profession without any extra text.`;
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content: "You are a realistic profession generator.",
+        },
+        { role: "user", content: prompt },
+      ],
+    });
+
+    return response.choices[0].message.content.trim();
+  } catch (error) {
+    console.error("Error generating profession:", error);
+    return "Profession unavailable.";
+  }
+}
+
+/**
+ * Generates a biography for a fictional persona using ChatGPT.
+ * @param {Object} persona - The fictional persona object containing name, age, profession, and origin.
+ * @returns {Promise<string>} - A promise that resolves to the generated biography.
+ */
+async function generatePersonaBio(persona) {
+  const prompt = `Create a short one-paragraph creative biography in the language spoken in ${persona.origin} for a fictional ${persona.gender} person who lives in ${persona.address} called ${persona.name}, aged ${persona.age}, 
+  who works as ${persona.profession}.`;
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "You are a creative biography generator." },
         { role: "user", content: prompt },
       ],
     });
 
     return response.choices[0].message.content;
   } catch (error) {
-    console.error("Erro ao gerar biografia:", error);
-    return "Biografia indisponível no momento.";
+    console.error("Error generating biography:", error);
+    return "Biography unavailable.";
   }
 }
 
-module.exports = { generatePersonaBio, generatePersonaName };
+module.exports = {
+  generatePersonaName,
+  generatePersonaAddress,
+  generatePersonaProfession,
+  generatePersonaBio,
+};

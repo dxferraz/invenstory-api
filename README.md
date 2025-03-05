@@ -1,6 +1,6 @@
 # 👤 Invenstory API
 
-🚀 **Invenstory API** is a REST API that generates random fictional personas. It returns information such as name, age, nationality, profession, and an avatar, useful for testing, prototyping, and creating fictional characters.
+🚀 **Invenstory API** is a REST API that generates random fictional personas. It returns information such as name, age, origin, profession, and an avatar, useful for testing, prototyping, and creating fictional characters.
 
 ## 📌 Features
 
@@ -56,7 +56,7 @@ The API will be running, and its documentation can be accessed at [**http://loca
 ### 🔹 **Generate a Random Persona**
 
 ```http
-GET /api/persona
+GET /persona
 ```
 
 🔹 **Example JSON Response**
@@ -66,7 +66,7 @@ GET /api/persona
   "name": "Daniel Ximenes Ferraz",
   "age": 23,
   "gender": "male",
-  "nationality": "Brazilian",
+  "origin": "Brazilian",
   "profession": "Software Developer",
   "bio": "Software developer with 3 years of experience...",
   "photo": "https://randomuser.me/api/portraits/men/45.jpg"
@@ -76,7 +76,7 @@ GET /api/persona
 ### 🔹 **Generate a Persona by Gender**
 
 ```http
-GET /api/persona?gender=female
+GET /persona?gender=female
 ```
 
 🔹 **Example JSON Response**
@@ -86,7 +86,7 @@ GET /api/persona?gender=female
   "name": "Mariana Souza",
   "age": 29,
   "gender": "female",
-  "nationality": "Portuguese",
+  "origin": "Portuguese",
   "profession": "Graphic Designer",
   "bio": "Graphic designer who loves drawing on screens...",
   "photo": "https://randomuser.me/api/portraits/women/20.jpg"
@@ -108,7 +108,7 @@ http://localhost:5000/api-docs
 
 ## 🛠️ Future Improvements
 
-✅ Add more filters (minimum/maximum age, nationality)\
+✅ Add more filters (minimum/maximum age, origin)\
 ✅ Add LGBTQIA+ support to generate personas of different genders\
 ✅ Create a web interface to visualize personas
 
@@ -121,4 +121,3 @@ This project is open-source under the **Apache License**.
 ---
 
 💡 **Developed by **[**Daniel Ferraz**](https://github.com/dxferraz). Contributions are welcome! 😃
-

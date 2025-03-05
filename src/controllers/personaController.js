@@ -1,5 +1,5 @@
 const faker = require("@faker-js/faker");
-const { generatePersonaBio, generatePersonaName } = require("../services/openaiService");
+const { generatePersonaBio, generatePersonaAddress, generatePersonaName, generatePersonaProfession } = require("../services/openaiService");
 const { generatePersonaPhoto } = require("../services/falaiService");
 
 exports.generatePersona = async (req, res) => {
@@ -10,10 +10,15 @@ exports.generatePersona = async (req, res) => {
     age: req.query.age || faker.faker.number.int({ min: 18, max: 90 }),
     gender: req.query.gender || gender,
     origin: req.query.origin || faker.faker.location.country(),
-    profession: faker.faker.person.jobTitle()
+    address: "",
+    profession: "",
   };
 
   persona.name = await generatePersonaName(persona);
+
+  persona.address = await generatePersonaAddress(persona);
+
+  persona.profession = req.query.profession || await generatePersonaProfession(persona);
 
   persona.bio = await generatePersonaBio(persona);
 
