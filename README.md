@@ -83,6 +83,16 @@ GET /persona?gender=female
 
 ```json
 {
+  "name": "Isadora Luzia Carvalho",
+  "age": "25",
+  "gender": "Transfeminine",
+  "origin": "Brazil",
+  "address": "Maria Silva  \nRua das Flores, 123  \nBairro Jardim das Acácias  \nCidade São Paulo  \nEstado São Paulo  \nCEP 01234-567  \nBrasil",
+  "profession": "Mechanic",
+  "bio": "Isadora Luzia Carvalho, uma mecânica de 25 anos, vive na Rua das Flores, no encantador Bairro Jardim das Acácias, em São Paulo. Desde pequena, Isadora sempre teve uma paixão inabalável por motores e engrenagens, transformando sua curiosidade em uma carreira habilidosa que desafia estereótipos de gênero. Transfeminina e orgulhosa, ela é conhecida na vizinhança por sua técnica impecável e pelo sorriso acolhedor que ilumina a oficina onde trabalha. Às vezes, entre consertos, ela sonha em abrir sua própria escola de mecânica para inspirar mais jovens a seguirem seus sonhos, provando que a força vem de dentro, não importa a forma que ela assuma.",
+  "photo": "https://v3.fal.media/files/tiger/yAHn7HomkKyPtvtpOzoin.png"
+}
+{
   "name": "Mariana Souza",
   "age": 29,
   "gender": "female",
@@ -108,8 +118,6 @@ http://localhost:5000/api-docs
 
 ## 🛠️ Future Improvements
 
-✅ Add more filters (minimum/maximum age, origin)\
-✅ Add LGBTQIA+ support to generate personas of different genders\
 ✅ Create a web interface to visualize personas
 
 ---

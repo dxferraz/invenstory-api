@@ -85,7 +85,7 @@ async function generatePersonaProfession(persona) {
  * @param {Object} persona - The fictional persona object containing name, age, profession, and origin.
  * @returns {Promise<string>} - A promise that resolves to the generated biography.
  */
-async function generatePersonaBio(persona) {
+async function generatePersonaBiography(persona) {
   const prompt = `Create a short one-paragraph creative biography in the language spoken in ${persona.origin} for a fictional ${persona.gender} person who lives in ${persona.address} called ${persona.name}, aged ${persona.age}, 
   who works as ${persona.profession}.`;
 
@@ -109,5 +109,5 @@ module.exports = {
   generatePersonaName,
   generatePersonaAddress,
   generatePersonaProfession,
-  generatePersonaBio,
+  generatePersonaBiography,
 };

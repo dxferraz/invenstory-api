@@ -13,7 +13,6 @@ const { generatePersona } = require("../controllers/personaController");
  *       - in: query
  *         name: age
  *         description: Age of the persona. Randomly generated if not provided.
- *         example: "23"
  *         required: false
  *         schema:
  *           type: integer
@@ -23,7 +22,6 @@ const { generatePersona } = require("../controllers/personaController");
  *       - in: query
  *         name: gender
  *         description: Gender of the persona. Randomly generated if not provided.
- *         example: "male"
  *         required: false
  *         schema:
  *           type: string
@@ -56,7 +54,6 @@ const { generatePersona } = require("../controllers/personaController");
  *       - in: query
  *         name: origin
  *         description: Origin of the persona. Randomly generated if not provided.
- *         example: "Brazil"
  *         required: false
  *         schema:
  *           type: string
@@ -260,7 +257,6 @@ const { generatePersona } = require("../controllers/personaController");
  *       - in: query
  *         name: profession
  *         description: Profession of the persona. Randomly generated if not provided.
- *         example: "Software Developer"
  *         required: false
  *         schema:
  *           type: string
