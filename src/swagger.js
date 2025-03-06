@@ -7,7 +7,7 @@ const options = {
     info: {
       title: "Invenstory API",
       version: "1.0.0",
-      description: "An API for generating fictional characters",
+      description: "An API for generating fictional personas.",
     },
     servers: [
       {

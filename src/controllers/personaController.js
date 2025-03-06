@@ -7,7 +7,7 @@ const {
 } = require("../services/openaiService");
 const { generatePersonaPhoto } = require("../services/falaiService");
 
-exports.generatePersona = async (req, res) => {
+const generatePersona = async (req, res) => {
   const persona = {
     name: "",
     age: req.query.age || faker.faker.number.int({ min: 18, max: 90 }),
@@ -32,3 +32,5 @@ exports.generatePersona = async (req, res) => {
 
   res.json(persona);
 };
+
+module.exports = { generatePersona };
