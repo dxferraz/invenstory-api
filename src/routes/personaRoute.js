@@ -1,11 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const { generatePersona } = require("../controllers/personaController");
+const { authenticateToken } = require("../middleware/auth");
 
 /**
  * @swagger
  * /persona:
  *   get:
+ *     security:
+ *       - bearerAuth: []
  *     summary: Generates a fictional persona with random attributes, photo, documents and etc.
  *     description: Returns a fictional persona with name, age, gender, origin, address, profession, biography and photo.
  *     tags: [Persona]
@@ -260,7 +263,7 @@ const { generatePersona } = require("../controllers/personaController");
  *         required: false
  *         schema:
  *           type: string
- *           nullable: true 
+ *           nullable: true
  *     responses:
  *       200:
  *         description: Success! Returns a fictional persona.
@@ -291,6 +294,6 @@ const { generatePersona } = require("../controllers/personaController");
  *                   type: string
  *                   example: "https://randomuser.me/api/portraits/men/45.jpg"
  */
-router.get("/persona", generatePersona);
+router.get("/persona", authenticateToken, generatePersona);
 
 module.exports = router;

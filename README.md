@@ -5,7 +5,7 @@
 ## 📌 Features
 
 ✅ Automatically generates fictional personas\
-✅ Optional filters for gender (`male` or `female`)\
+✅ Optional filters for age, gender, origin and profession\
 ✅ Structured JSON for easy integration\
 ✅ Swagger documentation
 
@@ -17,6 +17,8 @@
 - [Express](https://expressjs.com/)
 - [Faker.js](https://fakerjs.dev/)
 - [Swagger UI](https://swagger.io/)
+- [OpenAI API](https://beta.openai.com/)
+- [FalAI API](https://fal.ai/)
 
 ---
 
@@ -35,10 +37,12 @@ cd invenstory-api
 npm install
 ```
 
-3️⃣ **Create a **``** file in the project's root and add:**
+3️⃣ **Create a **`.env`** file in the project's root and add:**
 
 ```env
 PORT=5000
+OPENAI_API_KEY=your_openai_api_key
+FALAI_API_KEY=your_falai_api_key
 ```
 
 4️⃣ **Run the API:**
@@ -56,7 +60,7 @@ The API will be running, and its documentation can be accessed at [**http://loca
 ### 🔹 **Generate a Random Persona**
 
 ```http
-GET /persona
+GET https://api.invenstory.dev/persona
 ```
 
 🔹 **Example JSON Response**
@@ -68,7 +72,7 @@ GET /persona
   "gender": "male",
   "origin": "Brazilian",
   "profession": "Software Developer",
-  "bio": "Software developer with 3 years of experience...",
+  "biography": "Software developer with 3 years of experience...",
   "photo": "https://randomuser.me/api/portraits/men/45.jpg"
 }
 ```
@@ -83,23 +87,14 @@ GET /persona?gender=female
 
 ```json
 {
-  "name": "Isadora Luzia Carvalho",
-  "age": "25",
-  "gender": "Transfeminine",
-  "origin": "Brazil",
-  "address": "Maria Silva  \nRua das Flores, 123  \nBairro Jardim das Acácias  \nCidade São Paulo  \nEstado São Paulo  \nCEP 01234-567  \nBrasil",
-  "profession": "Mechanic",
-  "bio": "Isadora Luzia Carvalho, uma mecânica de 25 anos, vive na Rua das Flores, no encantador Bairro Jardim das Acácias, em São Paulo. Desde pequena, Isadora sempre teve uma paixão inabalável por motores e engrenagens, transformando sua curiosidade em uma carreira habilidosa que desafia estereótipos de gênero. Transfeminina e orgulhosa, ela é conhecida na vizinhança por sua técnica impecável e pelo sorriso acolhedor que ilumina a oficina onde trabalha. Às vezes, entre consertos, ela sonha em abrir sua própria escola de mecânica para inspirar mais jovens a seguirem seus sonhos, provando que a força vem de dentro, não importa a forma que ela assuma.",
-  "photo": "https://v3.fal.media/files/tiger/yAHn7HomkKyPtvtpOzoin.png"
-}
-{
-  "name": "Mariana Souza",
-  "age": 29,
-  "gender": "female",
-  "origin": "Portuguese",
+  "name": "Sofia Almeida Andrade",
+  "age": "29",
+  "gender": "Female",
+  "origin": "Portugal",
+  "address": "Maria Silva  \nRua da Liberdade, 45  \n8500-123 Portimão  \nAlgarve, Portugal",
   "profession": "Graphic Designer",
-  "bio": "Graphic designer who loves drawing on screens...",
-  "photo": "https://randomuser.me/api/portraits/women/20.jpg"
+  "biography": "Sofia Almeida Andrade, uma talentosa designer gráfica de 29 anos, vive na encantadora Rua da Liberdade, em Portimão, no deslumbrante Algarve. Desde pequena, Sofia sempre teve uma paixão pela arte e pela tecnologia, o que a levou a criar visuais fascinantes que cativam e inspiram. Com um estilo único que mistura cores vibrantes com elementos minimalistas, ela tem conquistado o coração de clientes locais e internacionais. Nas horas vagas, Sofia gosta de explorar as praias douradas da região, onde busca inspiração nas ondas e no pôr do sol alaranjado, sempre pronta para transformar a beleza do mundo em obras-primas digitais.",
+  "photo": "https://v3.fal.media/files/panda/kwY-60W1HPDjrYqsMaweV.png"
 }
 ```
 

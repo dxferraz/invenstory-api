@@ -1,4 +1,6 @@
 const faker = require("@faker-js/faker");
+const jwt = require('jsonwebtoken');
+
 const {
   generatePersonaBiography,
   generatePersonaAddress,
@@ -7,7 +9,7 @@ const {
 } = require("../services/openaiService");
 const { generatePersonaPhoto } = require("../services/falaiService");
 
-exports.generatePersona = async (req, res) => {
+const generatePersona = async (req, res) => {
   const persona = {
     name: "",
     age: req.query.age || faker.faker.number.int({ min: 18, max: 90 }),
@@ -30,5 +32,9 @@ exports.generatePersona = async (req, res) => {
 
   persona.photo = await generatePersonaPhoto(persona);
 
-  res.json(persona);
+  const token = jwt.sign({ persona }, 'secret_key', { expiresIn: '1h' });
+
+  res.json({ persona, token });
 };
+
+module.exports = { generatePersona };
