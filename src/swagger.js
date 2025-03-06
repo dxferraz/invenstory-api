@@ -1,14 +1,30 @@
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const { authenticateToken } = require("./middleware/auth");
 
 const options = {
-  definition: {
+  swaggerDefinition: {
     openapi: "3.0.0",
     info: {
       title: "Invenstory API",
       version: "1.0.0",
       description: "An API for generating fictional personas.",
     },
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'Authorization',
+          description: 'Chave de autenticação',
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
     servers: [
       {
         url: "https://api.invenstory.dev",

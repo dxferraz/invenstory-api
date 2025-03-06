@@ -1,4 +1,6 @@
 const faker = require("@faker-js/faker");
+const jwt = require('jsonwebtoken');
+
 const {
   generatePersonaBiography,
   generatePersonaAddress,
@@ -30,7 +32,9 @@ const generatePersona = async (req, res) => {
 
   persona.photo = await generatePersonaPhoto(persona);
 
-  res.json(persona);
+  const token = jwt.sign({ persona }, 'secret_key', { expiresIn: '1h' });
+
+  res.json({ persona, token });
 };
 
 module.exports = { generatePersona };
