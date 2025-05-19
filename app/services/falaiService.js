@@ -7,7 +7,7 @@ const { fal } = require("@fal-ai/client");
  * @returns {Promise<string>} - A promise that resolves to the generated image URL.
  */
 async function generatePersonaPhoto(persona) {
-  const prompt = `A realistic portrait of a ${persona.age}-year-old ${persona.gender} named ${persona.name}, who works as a ${persona.profession} and is from ${persona.origin} with all the regional and gender details.`;
+  const prompt = `A realistic portrait photo with 3:4 aspect ratio, showing only the shoulders and above, of a ${persona.age}-year-old ${persona.gender} named ${persona.name}. They are a ${persona.profession} from ${persona.origin}, with accurate regional and gender-specific features. The subject has a neutral facial expression with relaxed facial muscles, as required in official document photos. The background is plain white, like in passport or ID photos.`;
 
   fal.config({ credentials: process.env.FALAI_API_KEY });
 
@@ -16,7 +16,7 @@ async function generatePersonaPhoto(persona) {
       input: {
         prompt: prompt,
         image_size: {
-          width: 512,
+          width: 384,
           height: 512,
         },
       },

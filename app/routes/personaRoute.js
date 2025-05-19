@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const { authMiddleware } = require("../middleware/auth");
 const { generatePersona } = require("../controllers/personaController");
-const { authenticateToken } = require("../middleware/auth");
 
 /**
  * @swagger
@@ -294,6 +294,6 @@ const { authenticateToken } = require("../middleware/auth");
  *                   type: string
  *                   example: "https://randomuser.me/api/portraits/men/45.jpg"
  */
-router.get("/persona", authenticateToken, generatePersona);
+router.get("/", authMiddleware, generatePersona);
 
 module.exports = router;
