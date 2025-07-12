@@ -36,12 +36,11 @@ const generatePersona = async (req, res) => {
   persona.photo = await generatePersonaPhoto(persona);
 
   const firebasePhotoUrl = await uploadImageToFirebase(persona.photo, id);
-  
+
   if (firebasePhotoUrl) {
     persona.photo = firebasePhotoUrl;
   }
 
-  console.log("Attempting to save persona:", persona);
   const { data, error } = await supabase.from("personas").insert([persona]);
 
   if (error) {
