@@ -28,7 +28,12 @@ async function generatePersonaPhoto(persona) {
       },
     });
 
-    return response.data.images[0].url;
+    if (response.data && response.data.images && response.data.images.length > 0) {
+      return response.data.images[0].url;
+    } else {
+      console.error("Fal.ai API did not return an image URL.");
+      return "";
+    }
   } catch (error) {
     console.error(
       "Error generating persona photo:",

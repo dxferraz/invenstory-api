@@ -1,4 +1,5 @@
 const faker = require("@faker-js/faker");
+const { v4: uuidv4 } = require("uuid");
 const {
   generatePersonaBiography,
   generatePersonaAddress,
@@ -6,10 +7,13 @@ const {
   generatePersonaProfession,
 } = require("../services/openaiService");
 const { generatePersonaPhoto } = require("../services/falaiService");
+const { uploadImageToFirebase } = require("../services/firebaseService");
 const { supabase } = require("../supabaseClient");
 
 const generatePersona = async (req, res) => {
+  const id = uuidv4();
   const persona = {
+    id: id,
     name: "",
     age: req.query.age || faker.faker.number.int({ min: 18, max: 90 }),
     gender: req.query.gender || (Math.random() > 0.5 ? "male" : "female"),
@@ -31,6 +35,13 @@ const generatePersona = async (req, res) => {
 
   persona.photo = await generatePersonaPhoto(persona);
 
+  const firebasePhotoUrl = await uploadImageToFirebase(persona.photo, id);
+  
+  if (firebasePhotoUrl) {
+    persona.photo = firebasePhotoUrl;
+  }
+
+  console.log("Attempting to save persona:", persona);
   const { data, error } = await supabase.from("personas").insert([persona]);
 
   if (error) {
