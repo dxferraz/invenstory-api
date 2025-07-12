@@ -6,6 +6,7 @@ const {
   generatePersonaProfession,
 } = require("../services/openaiService");
 const { generatePersonaPhoto } = require("../services/falaiService");
+const { supabase } = require("../supabaseClient");
 
 const generatePersona = async (req, res) => {
   const persona = {
@@ -29,6 +30,13 @@ const generatePersona = async (req, res) => {
   persona.biography = await generatePersonaBiography(persona);
 
   persona.photo = await generatePersonaPhoto(persona);
+
+  const { data, error } = await supabase.from("personas").insert([persona]);
+
+  if (error) {
+    console.error("Error saving persona to Supabase:", error);
+    return res.status(500).json({ error: "Failed to save persona." });
+  }
 
   res.json({ persona });
 };

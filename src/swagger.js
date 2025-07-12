@@ -74,7 +74,7 @@ Click the **"Authorize"** button above and paste the token including the **Beare
       },
     ],
   },
-  apis: ["./app/routes/*.js"],
+  apis: ["./src/routes/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
