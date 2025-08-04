@@ -4,21 +4,6 @@ const User = require("../models/user");
 
 const secret = process.env.JWT_SECRET;
 
-const registerUser = async (req, res) => {
-  const { email, password } = req.body;
-  const passwordHash = bcrypt.hashSync(password, 8);
-
-  try {
-    const user = await User.create({ email, passwordHash });
-    res.status(201).json({ message: "Usuário cadastrado com sucesso" });
-  } catch (err) {
-    res.status(400).json({
-      message: "E-mail já cadastrado ou erro ao salvar",
-      error: err.message,
-    });
-  }
-};
-
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ where: { email } });
@@ -32,7 +17,4 @@ const loginUser = async (req, res) => {
   res.json({ token });
 };
 
-module.exports = {
-  registerUser,
-  loginUser,
-};
+module.exports = { loginUser };
