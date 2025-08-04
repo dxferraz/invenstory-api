@@ -16,8 +16,6 @@ The API provides a wide range of attributes for the personas, including name, ag
 
 ### 🔐 JWT Authentication
 
-Use **POST /register** to create a new user.
-
 Use **POST /login** to authenticate with **email and password**.  
 You will receive a JWT token:
 
@@ -39,7 +37,6 @@ Click the **"Authorize"** button above and paste the token including the **Beare
 
 ### 📦 Available Endpoints
 
-- **POST /register** – Register a new user
 - **POST /login** – Authenticate and receive a token
 - **GET /persona** – Protected route, requires Bearer Token
       `,
